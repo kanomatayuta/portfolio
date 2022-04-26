@@ -364,16 +364,6 @@ body {
   width: 2em;
 }
 
-.follow__area--list p::before {
-  display: inline-block;
-  content: "";
-  border: solid #333;
-  border-width: 0 1px 0 0;
-  width: 1px;
-  height: 3em;
-  margin: 0 auto 1.5em;
-}
-
 .follow__area--item {
   display: block;
   margin: 1.5em 0;
@@ -393,6 +383,16 @@ body {
   -webkit-writing-mode: vertical-rl;
   -ms-writing-mode: tb-rl;
   -o-writing-mode: vertical-rl;
+}
+
+.follow__area .text::before {
+  display: inline-block;
+  content: "";
+  border: solid #333;
+  border-width: 0 1px 0 0;
+  width: 1px;
+  height: 3em;
+  margin: 0 auto 1.5em;
 }
 
 /*--------------------------
