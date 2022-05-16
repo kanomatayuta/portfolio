@@ -211,6 +211,10 @@ body {
   margin: 0 1em;
 }
 
+.gnavi__follow .sns--item:hover {
+  opacity: 0.7;
+}
+
 /*--------------------------
 * main
 --------------------------*/
@@ -226,7 +230,7 @@ body {
 
 .contents .area {
   margin: 0;
-  padding: 10% 0 10%;
+  padding: 10% 0 15%;
 }
 
 .hed {
@@ -287,6 +291,16 @@ body {
 .post {
   display: none;
 }
+
+.post .text {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.post img {
+  object-fit: contain;
+}
+
 
 /*--------------------------
 * profile
@@ -351,6 +365,35 @@ body {
 }
 
 /*--------------------------
+* contact
+--------------------------*/
+.contact--text {
+  text-align: center;
+  margin: 10% auto 0;
+}
+
+.contactbtn {
+  text-align: center;
+  display: block;
+  border-radius: 40px;
+  overflow: hidden;
+  font-weight: bold;
+  width: 50%;
+  margin: 1.5rem auto 1.5rem;
+  padding: 1.5rem 3rem;
+  line-height: 1;
+  color: #3c3632;
+  border: 1px solid #3c3632;
+  background-color: #FFF;
+  cursor: pointer;
+}
+
+.contactbtn:hover {
+  background-color: #3c3632;
+  color: #fff;
+}
+
+/*--------------------------
 * follow area
 --------------------------*/
 
@@ -373,6 +416,10 @@ body {
 
 .follow__area--item svg {
   width: 1.5em;
+}
+
+.follow__area--item:hover svg {
+  opacity: 0.7;
 }
 
 .follow__area .text {
@@ -398,10 +445,6 @@ body {
 /*--------------------------
 * footer 
 --------------------------*/
-.footer {
-  margin-top: 5%;
-}
-
 .footer__navi {
   padding: 10%;
   display: flex;
@@ -442,11 +485,15 @@ body {
   margin: 0 1em;
 }
 
+.footer__follow li:hover {
+  opacity: 0.7;
+}
+
 .copyright {
   font-size: .8em;
   text-align: center;
   opacity: .6;
-  padding-bottom: 4em;
+  padding-bottom: 2em;
 }
 
 @media screen and (min-width: 1400px) {

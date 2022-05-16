@@ -169,17 +169,16 @@
   padding: 0;
 }
 
-.ttl,
-.skill {
-  margin: .7em 0;
-  font-size: 1.2em;
-}
 
 .ttl span {
-  margin-bottom: 0 0 .7em;
+  margin-bottom: .7em;
   font-weight: bold;
   text-align: left;
   line-height: 1.5;
+}
+
+.skill {
+  margin: .7em 0;
 }
 
 /*--------------------------
@@ -266,7 +265,7 @@
 
 .aspform_title span:before {
   content: "必須";
-  font-size: .7rem;
+  font-size: .8rem;
   color: #e87985;
   display: inline-block;
   vertical-align: top;
@@ -277,7 +276,7 @@
 .p-form textarea {
   width: 100%;
   padding: 1rem;
-  font-size: .7em;
+  font-size: .8em;
   border: 1px solid #e0e0e0;
   border-radius: 0.85rem;
 }
@@ -294,7 +293,7 @@
   overflow: hidden;
   text-align: center;
   font-weight: bold;
-  width: 18rem;
+  width: 50%;
   margin: 1.5rem auto 1.5rem;
   padding: 1.5rem 5rem;
   line-height: 1;
