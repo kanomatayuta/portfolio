@@ -317,11 +317,11 @@ body {
 }
 
 .profile--img span {
-  padding-top: 66%;
+  padding-top: 50%;
   display: block;
   background-repeat: no-repeat;
   background-position: 0 0;
-  background-size: cover;
+  background-size: contain;
 }
 
 .profile__inner {
