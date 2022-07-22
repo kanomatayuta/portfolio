@@ -1,0 +1,144 @@
+@charset "UTF-8";
+
+// 共通
+@use "_reset";
+@use "_base";
+@use "_fonts";
+@use "_variables";
+@use "_header";
+@use "_footer";
+
+// レスポンシブ
+$pc: 960px;
+$tb: 520px;
+$sp: 320px;
+
+@mixin pc {
+  @media screen and (max-width: $pc) {
+    @content;
+  }
+}
+
+@mixin tb {
+  @media screen and (max-width: $tb) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media screen and (max-width: $sp) {
+    @content;
+  }
+}
+
+/*--------------------------
+* profile.html
+--------------------------*/
+.profile__contet {
+  padding: 0;
+  align-items: center;
+}
+
+.profile--img {
+  opacity: 0;
+  -webkit-transition: all 3s ease;
+  transition: all 3s ease;
+}
+
+.profile__inner h3 {
+  margin: auto;
+  font-weight: 400;
+  margin-bottom: 1.8em;
+}
+
+.about,
+.consept {
+  padding: 5% 5% 0;
+}
+
+.about--title,
+.consept--title {
+  font-size: 1.3em;
+  font-family: 'Libre Baskerville', serif;
+  letter-spacing: .2em;
+  line-height: 1.4;
+}
+
+.about--title h2,
+.consept--title h2 {
+  padding: 0 0 0.7em;
+}
+
+.about--title h2:before,
+.consept--title h2:before {
+  content: "●";
+  width: 3%;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+@media screen and (max-width: 960px) {
+  .pc {
+    display: none;
+  }
+
+  .page_header {
+    position: relative;
+  }
+
+  .page_contents {
+    margin: 0 auto 0;
+  }
+
+  .profile--img {
+    margin-bottom: 1.8rem;
+  }
+}
+
+.works__tab {
+  padding-top: 5rem;
+}
+
+.fixed-wrk {
+  position: fixed;
+  top: 0;
+  z-index: 997;
+}
+
+@media screen and (max-width: 960px) {
+  .works__inner {
+    display: block;
+  }
+
+  .works__tab {
+    width: 100%;
+    display: flex;
+    padding-top: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition: all .3s;
+  }
+
+  .fixed-wrk {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    padding: 1.1rem;
+    transform: translateY(0%);
+  }
+
+  .fixed-wrk li {
+    margin: 0;
+  }
+
+  .works__tab li {
+    width: 25%;
+    text-align: center;
+    margin: 0;
+  }
+
+  .works__details {
+    margin: 1.1rem auto 0;
+  }
+}

@@ -1,0 +1,254 @@
+@charset "utf-8";
+// レスポンシブ
+$pc: 960px;
+$tb: 520px;
+$sp: 320px;
+
+@mixin pc {
+  @media screen and (max-width: $pc) {
+    @content;
+  }
+}
+
+@mixin tb {
+  @media screen and (max-width: $tb) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media screen and (max-width: $sp) {
+    @content;
+  }
+}
+
+/*--------------------------
+* 共通
+--------------------------*/
+.sp {
+  display: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.6rem;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  word-wrap: break-word;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/*--------------------------
+* viewbtn
+--------------------------*/
+.viewbtn {
+  float: right;
+  position: relative;
+  margin: 2em 0 0;
+}
+
+.viewbtn a {
+  display: block;
+  text-align: center;
+  font-family: 'Superior Title', serif;
+  letter-spacing: .1em;
+  font-size: 1.6rem;
+  line-height: 3;
+  position: relative;
+
+  @include tb() {
+    font-size: 1rem;
+  }
+}
+
+.viewbtn a::after {
+  height: 1px;
+  content: "";
+  display: block;
+  clear: both;
+  border-bottom: 1px solid #eee;
+}
+
+.contents {
+  margin-left: 10%;
+  margin-right: 10%;
+  border-left: 1px solid #eee;
+}
+
+.contents .area {
+  margin: 0;
+  padding: 10% 0 15%;
+}
+
+.sec-title {
+  font-size: 2.5rem;
+  font-family: 'Superior Title', serif;
+  letter-spacing: .2em;
+  line-height: 1.5;
+  padding-left: 5%;
+  -webkit-transition: all 3s ease;
+  transition: all 3s ease;
+  -webkit-clip-path: inset(0 100% 0 0);
+  clip-path: inset(0 100% 0 0);
+
+  @include tb() {
+    font-size: 1.8rem;
+  }
+}
+
+/* ホバー時 */
+/* works */
+
+.works__tab li span {
+  position: relative;
+}
+
+.tab--list li span:before,
+.works__tab li span:before {
+  background-color: #3c3632;
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  transition: all .3s cubic-bezier(.19, 1, .22, 1);
+  transition-timing-function: cubic-bezier(.19, 1, .22, 1);
+}
+
+.tab--list li:hover span:before,
+.works__tab li:hover span:before {
+  width: 100%;
+}
+
+.active span:before {
+  width: 100% !important;
+}
+
+/* navi */
+.gnavi--list li a,
+.page_gnavi--list li a,
+.footer__navi li a {
+  position: relative;
+}
+
+.gnavi--list li a:before,
+.page_gnavi--list li a:before,
+.footer__navi li a:before {
+  background-color: #3c3632;
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  transition: all .3s cubic-bezier(.19, 1, .22, 1);
+  transition-timing-function: cubic-bezier(.19, 1, .22, 1);
+}
+
+.gnavi--list li:hover a:before,
+.page_gnavi--list li:hover a:before,
+.footer__navi li:hover a:before {
+  width: 100%;
+}
+
+/* viewbtn */
+.viewbtn a::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  content: "";
+  display: block;
+  clear: both;
+  border-bottom: 1px solid #3c3632;
+}
+
+.viewbtn a:hover::before {
+  width: 100%;
+}
+
+.viewbtn a::after {
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  content: "";
+  display: block;
+  clear: both;
+  border-bottom: 1px solid #eee;
+}
+
+
+
+/* fade */
+.fade {
+  opacity: 0;
+  -webkit-transition: all 3s ease;
+  transition: all 3s ease;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+/* slide */
+.slide-in {
+  -webkit-clip-path: inset(0);
+  clip-path: inset(0);
+}
+
+/*--------------------------
+* 共通
+--------------------------*/
+.page_contents {
+  position: relative;
+  margin: 60px auto 0;
+  padding: 0 10% 15%;
+}
+
+/*--------------------------
+* main
+--------------------------*/
+.main {
+  position: relative;
+}
+
+.page_contents .area {
+  margin: 0;
+}
+
+.pagetitle {
+  padding: 3em 0;
+  font-size: 1.6em;
+  font-family: 'Libre Baskerville', serif;
+  letter-spacing: .2em;
+  line-height: 1.4;
+  -webkit-transition: all 3s ease;
+  transition: all 3s ease;
+  -webkit-clip-path: inset(0 100% 0 0);
+  clip-path: inset(0 100% 0 0);
+}
+
+.pagetitle:before {
+  content: "";
+  border: solid #3c3632;
+  border-width: 1px 0 0 0;
+  width: 8%;
+  margin-right: 1%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.pagetitle h2 {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}

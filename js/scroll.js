@@ -1,24 +1,4 @@
 window.addEventListener("load", function () {
-  /*----------------------------
-  * hamburger-navの実装 SP版
-  *----------------------------*/
-  const hamburgerBtn = document.getElementById('js-hamburger');
-  const drawerNav = document.getElementById('js-drawer');
-  let flag = false;
-
-  hamburgerBtn.addEventListener('click', function () {
-    if (!flag)
-    {
-      drawerNav.classList.add('drawer-active');
-      hamburgerBtn.classList.add('btn-active');
-      flag = true;
-    } else
-    {
-      drawerNav.classList.remove('drawer-active');
-      hamburgerBtn.classList.remove('btn-active');
-      flag = false;
-    }
-  });
 
   /*----------------------------
   * スクロール時のヘッダー部分の実装
@@ -39,7 +19,7 @@ window.addEventListener("load", function () {
     }
   });
 
-  //  work 
+  //  work
   window.addEventListener('scroll', function () {
     const triggerWork = document.getElementById('js-worktarget');
     const trigger = document.getElementById('follow__area');
@@ -64,7 +44,7 @@ window.addEventListener("load", function () {
 
   //  slide-in
   window.addEventListener('scroll', function () {
-    const slideTarget = document.querySelectorAll('.hed');
+    const slideTarget = document.querySelectorAll('.sec-title');
     for (let count = 0; count < slideTarget.length; count++)
     {
       const rect = slideTarget[count].getBoundingClientRect().top;
@@ -107,35 +87,6 @@ window.addEventListener("load", function () {
       }
     }
   });
-
-  /*----------------------------
-  *workタブメニュークリック時切り替え
-  *----------------------------*/
-  const tabTriggers = document.querySelectorAll('.js-tab');
-  const tabTargets = document.querySelectorAll('.post');
-
-  for (let count = 0; count < tabTriggers.length; count++)
-  {
-    tabTriggers[count].addEventListener('click', (e) => {
-      const currentMenu = e.currentTarget;
-      const currentContent = document.getElementById(currentMenu.dataset.id);
-      for (let count = 0; count < tabTriggers.length; count++)
-      {
-        tabTriggers[count].classList.remove('active');
-      }
-
-      currentMenu.classList.add('active');
-
-      for (let count = 0; count < tabTargets.length; count++)
-      {
-        tabTargets[count].classList.remove('active');
-      }
-      if (currentContent !== null)
-      {
-        currentContent.classList.add('active');
-      }
-    });
-  }
 
   const PageTopBtn = document.querySelectorAll('.js-scroll-top');
   for (let count = 0; count < PageTopBtn.length; count++)
