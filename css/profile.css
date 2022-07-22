@@ -55,9 +55,14 @@ body {
 * viewbtn
 --------------------------*/
 .viewbtn {
-  float: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   position: relative;
-  margin: 2em 0 0;
+  margin: 5% 0 0;
 }
 
 .viewbtn a {
@@ -89,9 +94,9 @@ body {
   border-left: 1px solid #eee;
 }
 
-.contents .area {
+.sec-wrapper {
   margin: 0;
-  padding: 10% 0 15%;
+  padding: 10% 0;
 }
 
 .sec-title {

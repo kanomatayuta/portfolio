@@ -55,9 +55,14 @@ body {
 * viewbtn
 --------------------------*/
 .viewbtn {
-  float: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   position: relative;
-  margin: 2em 0 0;
+  margin: 5% 0 0;
 }
 
 .viewbtn a {
@@ -89,9 +94,9 @@ body {
   border-left: 1px solid #eee;
 }
 
-.contents .area {
+.sec-wrapper {
   margin: 0;
-  padding: 10% 0 15%;
+  padding: 10% 0;
 }
 
 .sec-title {
@@ -664,13 +669,6 @@ body {
 /* 英語フォント */
 /* font-family: 'Superior Title', serif; */
 /*--------------------------
-* main
---------------------------*/
-.main {
-  position: relative;
-}
-
-/*--------------------------
 * works
 --------------------------*/
 .tab--list {
@@ -687,7 +685,7 @@ body {
 }
 @media screen and (max-width: 960px) {
   .tab--list {
-    padding-top: 10%;
+    padding-top: 5%;
     padding-right: 0px;
   }
 }
@@ -699,7 +697,8 @@ body {
 }
 .tab--list li {
   width: 15%;
-  padding: 0 0 0 3%;
+  max-width: 150px;
+  margin: 0 0 0 3%;
   text-align: center;
 }
 @media screen and (max-width: 960px) {
@@ -709,9 +708,12 @@ body {
 }
 @media screen and (max-width: 520px) {
   .tab--list li {
-    width: 25%;
-    padding-left: 0;
+    width: 28%;
+    padding: 0;
   }
+}
+.tab--list li:first-child {
+  margin: 0;
 }
 .tab--list li span {
   display: block;
@@ -737,23 +739,36 @@ body {
 .post--list::after {
   content: "";
   display: block;
-  width: 32%;
+  width: 30%;
   height: 0;
 }
 .post--list li {
-  width: 32%;
-  padding-top: 2%;
+  width: 30%;
+  padding-top: 3%;
+}
+.post--list li:nth-child(-n+3) {
+  padding: 0;
 }
 @media screen and (max-width: 960px) {
   .post--list li {
-    width: 49%;
+    width: 47%;
+  }
+  .post--list li:nth-child(n+3) {
+    padding-top: 3%;
   }
 }
 .post .text {
+  width: 100%;
   text-align: center;
-  margin: 3rem 0;
+  padding: 3% 0;
 }
-.post img {
+@media screen and (max-width: 320px) {
+  .post .text {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+.post .text img {
   -o-object-fit: contain;
      object-fit: contain;
 }
@@ -791,7 +806,6 @@ body {
 * profile
 --------------------------*/
 .profile__contet {
-  padding: 5% 0 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -800,6 +814,9 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 @media screen and (max-width: 960px) {
   .profile__contet {
@@ -815,7 +832,7 @@ body {
   }
 }
 .profile--img span {
-  padding-top: 50%;
+  padding-top: 70%;
   display: block;
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -823,7 +840,6 @@ body {
 }
 .profile__inner {
   width: 45%;
-  padding: 0px 0 0 5%;
 }
 @media screen and (max-width: 960px) {
   .profile__inner {
@@ -833,7 +849,7 @@ body {
 }
 .profile .sec-title {
   border: none;
-  margin: 0 0 1em;
+  margin-bottom: 5%;
   padding: 0;
 }
 @media screen and (max-width: 960px) {
@@ -876,7 +892,7 @@ body {
 --------------------------*/
 .contact--text {
   text-align: center;
-  margin: 10% auto 0;
+  margin: 5% auto 0;
 }
 
 .contact-btn {
@@ -886,7 +902,7 @@ body {
   overflow: hidden;
   font-weight: bold;
   max-width: 300px;
-  margin: 1.5rem auto 1.5rem;
+  margin: 2.5rem auto 1.5rem;
   padding: 2rem 3rem;
   line-height: 1;
   color: #3c3632;

@@ -31,21 +31,8 @@ $sp: 320px;
   }
 }
 
-//  @include pc() {
-//    width: 150px;
-//    height: 150px;
-//    margin: 0 auto;
-//  }
-
 /* 英語フォント */
 /* font-family: 'Superior Title', serif; */
-/*--------------------------
-* main
---------------------------*/
-.main {
-  position: relative;
-}
-
 /*--------------------------
 * works
 --------------------------*/
@@ -57,7 +44,7 @@ $sp: 320px;
   padding-bottom: 40px;
 
   @include pc() {
-    padding-top: 10%;
+    padding-top: 5%;
     padding-right: 0px;
   }
 
@@ -67,7 +54,8 @@ $sp: 320px;
 
   li {
     width: 15%;
-    padding: 0 0 0 3%;
+    max-width: 150px;
+    margin: 0 0 0 3%;
     text-align: center;
 
     @include pc() {
@@ -75,8 +63,12 @@ $sp: 320px;
     }
 
     @include tb() {
-      width: 25%;
-      padding-left: 0;
+      width: 28%;
+      padding: 0;
+    }
+
+    &:first-child {
+      margin: 0;
     }
 
     span {
@@ -100,27 +92,43 @@ $sp: 320px;
     &::after {
       content: "";
       display: block;
-      width: 32%;
+      width: 30%;
       height: 0;
     }
 
     li {
-      width: 32%;
-      padding-top: 2%;
+      width: 30%;
+      padding-top: 3%;
+
+      // 上部３つには適用しない
+      &:nth-child(-n+3) {
+        padding: 0;
+      }
 
       @include pc() {
-        width: 49%;
+        width: 47%;
+
+        // ３つ目以降に適用
+        &:nth-child(n+3) {
+          padding-top: 3%;
+        }
       }
     }
   }
 
   .text {
+    width: 100%;
     text-align: center;
-    margin: 3rem 0;
-  }
+    padding: 3% 0;
 
-  img {
-    object-fit: contain;
+    @include sp {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    img {
+      object-fit: contain;
+    }
   }
 }
 
@@ -151,10 +159,10 @@ $sp: 320px;
 --------------------------*/
 .profile {
   &__contet {
-    padding: 5% 0 0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
 
     @include pc() {
       display: block;
@@ -169,7 +177,7 @@ $sp: 320px;
     }
 
     span {
-      padding-top: 50%;
+      padding-top: 70%;
       display: block;
       background-repeat: no-repeat;
       background-position: 50% 50%;
@@ -179,7 +187,6 @@ $sp: 320px;
 
   &__inner {
     width: 45%;
-    padding: 0px 0 0 5%;
 
     @include pc() {
       width: 100%;
@@ -189,7 +196,7 @@ $sp: 320px;
 
   .sec-title {
     border: none;
-    margin: 0 0 1em;
+    margin-bottom: 5%;
     padding: 0;
 
     @include pc() {
@@ -237,7 +244,7 @@ $sp: 320px;
 --------------------------*/
 .contact--text {
   text-align: center;
-  margin: 10% auto 0;
+  margin: 5% auto 0;
 }
 
 .contact-btn {
@@ -247,7 +254,7 @@ $sp: 320px;
   overflow: hidden;
   font-weight: bold;
   max-width: 300px;
-  margin: 1.5rem auto 1.5rem;
+  margin: 2.5rem auto 1.5rem;
   padding: 2rem 3rem;
   line-height: 1;
   color: #3c3632;
