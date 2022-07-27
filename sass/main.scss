@@ -7,35 +7,14 @@
 @use "_variables";
 @use "_header";
 @use "_footer";
-
-// レスポンシブ
-$pc: 960px;
-$tb: 520px;
-$sp: 320px;
-
-@mixin pc {
-  @media screen and (max-width: $pc) {
-    @content;
-  }
-}
-
-@mixin tb {
-  @media screen and (max-width: $tb) {
-    @content;
-  }
-}
-
-@mixin sp {
-  @media screen and (max-width: $sp) {
-    @content;
-  }
-}
+@use "_responsive" as re;
 
 /* 英語フォント */
 /* font-family: 'Superior Title', serif; */
 /*--------------------------
 * works
 --------------------------*/
+
 .tab--list {
   display: flex;
   position: relative;
@@ -43,12 +22,12 @@ $sp: 320px;
   justify-content: flex-end;
   padding-bottom: 40px;
 
-  @include pc() {
+  @include re.pc() {
     padding-top: 5%;
     padding-right: 0px;
   }
 
-  @include tb() {
+  @include re.tb() {
     justify-content: space-around;
   }
 
@@ -57,18 +36,23 @@ $sp: 320px;
     max-width: 150px;
     margin: 0 0 0 3%;
     text-align: center;
+    opacity: 0.5;
 
-    @include pc() {
+    @include re.pc() {
       width: 20%;
     }
 
-    @include tb() {
+    @include re.tb() {
       width: 28%;
       padding: 0;
     }
 
     &:first-child {
       margin: 0;
+    }
+
+    &.active {
+      opacity: 1;
     }
 
     span {
@@ -84,44 +68,41 @@ $sp: 320px;
 .post {
   display: none;
 
-  &--list {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  // js
+  &.active {
+    display: block;
+    animation: appear 2s ease;
+  }
 
-    &::after {
-      content: "";
-      display: block;
-      width: 30%;
-      height: 0;
+  @keyframes appear {
+    0% {
+      opacity: 0;
     }
 
-    li {
-      width: 30%;
-      padding-top: 3%;
+    100% {
+      opacity: 1;
+    }
+  }
 
-      // 上部３つには適用しない
-      &:nth-child(-n+3) {
-        padding: 0;
-      }
+  &--list {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(3, 1fr); //3列に
 
-      @include pc() {
-        width: 47%;
+    @include re.pc() {
+      grid-template-columns: repeat(2, 1fr); //2列に
+    }
 
-        // ３つ目以降に適用
-        &:nth-child(n+3) {
-          padding-top: 3%;
-        }
-      }
+    @include re.tb() {
+      gap: 10px;
     }
   }
 
   .text {
-    width: 100%;
     text-align: center;
-    padding: 3% 0;
+    padding: 5% 0;
 
-    @include sp {
+    @include re.sp {
       width: 80%;
       margin: 0 auto;
     }
@@ -133,26 +114,6 @@ $sp: 320px;
 }
 
 
-// js
-.works__details .active {
-  display: block;
-  animation: appear 2s ease;
-}
-
-.works__content .active {
-  display: block;
-  animation: appear 2s ease;
-}
-
-@keyframes appear {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
 
 /*--------------------------
 * profile
@@ -164,7 +125,7 @@ $sp: 320px;
     align-items: center;
     justify-content: space-between;
 
-    @include pc() {
+    @include re.pc() {
       display: block;
     }
   }
@@ -172,7 +133,7 @@ $sp: 320px;
   &--img {
     width: 50%;
 
-    @include pc() {
+    @include re.pc() {
       width: 70%;
     }
 
@@ -188,18 +149,17 @@ $sp: 320px;
   &__inner {
     width: 45%;
 
-    @include pc() {
+    @include re.pc() {
       width: 100%;
       padding: 0px 10% 0 5%;
     }
   }
 
   .sec-title {
-    border: none;
     margin-bottom: 5%;
     padding: 0;
 
-    @include pc() {
+    @include re.pc() {
       margin: 10% 0;
     }
   }
@@ -212,7 +172,7 @@ $sp: 320px;
       font-size: 2.5rem;
       letter-spacing: .3em;
 
-      @include sp() {
+      @include re.sp() {
         font-size: 1.6rem;
         letter-spacing: 0;
       }
@@ -262,7 +222,7 @@ $sp: 320px;
   background-color: #FFF;
   cursor: pointer;
 
-  @include tb() {
+  @include re.tb() {
     width: 80%;
   }
 
@@ -285,7 +245,7 @@ $sp: 320px;
   text-align: center;
   width: 2em;
 
-  @include pc() {
+  @include re.pc() {
     display: none;
   }
 

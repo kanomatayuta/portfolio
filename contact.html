@@ -24,21 +24,16 @@
 </head>
 
 <body>
-  <!-- JS余分なやつ -->
-  <div id="follow__area"></div>
-  <div id="js-target"></div>
-  <div id="js-worktarget"></div>
-  <!-- JS余分なやつ -->
 
   <header class="page_header" id="header">
     <div class="page_header__logo">
       <a href="#">
-        <h1>KANOMATA YUTA</h1>
-        <p> PORTFOLIO WEBSITE</p>
+        <h1>KANOMATA&nbsp;YUTA</h1>
+        <p>PORTFOLIO&nbsp;WEBSITE</p>
       </a>
     </div>
 
-    <nav class="page_gnavi pc">
+    <nav class="page_gnavi">
       <div class="page_gnavi__inner">
         <ul class="page_gnavi--list">
           <li><a href="index.html">HOME</a></li>
@@ -87,7 +82,7 @@
       </ul>
 
       <div class="gnavi__follow">
-        <h3 class="gnavi__follow--title">FOLLOW ME</h3>
+        <h3 class="gnavi__follow--title">FOLLOW&nbsp;ME</h3>
         <ul class="sns--list">
           <li class="sns--item twitter">
             <a href="#" target="_blank">
@@ -119,8 +114,8 @@
     </div>
   </nav>
 
-  <div class="hamburger sp" id="js-hamburger">
-    <div class="hamburger--trigger">
+  <div class="page_hamburger" id="js-hamburger">
+    <div class="page_hamburger--trigger">
       <span></span>
       <span></span>
       <span></span>
@@ -129,7 +124,7 @@
 
   <main>
     <div class="page_contents">
-      <section class="sec-wrapper works">
+      <div class="contact">
         <div class="pagetitle">
           <h2>
             <span>CONTACT</span>
@@ -137,47 +132,46 @@
         </div>
 
 
-        <div class="form">
-          <div class="p-form">
-            <div class="toNogiContact">
-              <p>下記フォームよりポートフォリオのご感想や制作のご依頼・ご相談などお気軽にお問い合わせください。</p>
-              <p>お待ちしております。</p>
-            </div>
-            <form name="ques" method="post" action="/s/m00/form/inquiry" class="aspform">
-              <div class="aspform_title">貴社名</div>
-              <input type="text" name="1" size="20" maxlength="10000" value="">
 
-              <div class="aspform_title">お名前<span style="color: #e87985;">(必須)</span></div>
-              <input type="text" name="2" size="20" maxlength="10000" value="">
-
-              <div class="aspform_title">お名前（カナ)</div>
-              <input type="text" name="3" size="20" maxlength="10000" value="">
-
-              <div class="aspform_title">メールアドレス<span style="color: #e87985;">(必須)</span></div>
-              <input type="text" name="4" size="20" maxlength="10000" value="">
-
-              <div class="aspform_title">電話番号（携帯可)</div>
-              <input type="text" name="5" size="20" maxlength="10000" value="">
-
-              <div class="aspform_title">お問い合わせの種類<span style="color: #e87985;">(必須)</span></div>
-              <select name="6">
-                <option value="0" selected="">▼選択してください。</option>
-                <option value="1">制作依頼</option>
-                <option value="2">ポートフォリオ閲覧のご感想</option>
-                <option value="3">その他</option>
-              </select>
-
-              <div class="aspform_title">内容詳細<span style="color: #e87985;">(※)</span></div>
-              <textarea name="7" cols="25" maxlength="10000" rows="3"></textarea>
-
-              <div class="aspform_button">
-                <input type="submit" name="bt" value="確認"><br>
-              </div>
-            </form>
+        <section class="form">
+          <div class="toNogiContact">
+            <p>下記フォームよりポートフォリオのご感想や制作のご依頼・ご相談などお気軽にお問い合わせください。</p>
           </div>
-        </div>
+          <form name="ques" method="post" action="/s/m00/form/inquiry" class="aspform">
+            <div class="aspform_title">貴社名</div>
+            <input type="text" name="1" size="20" maxlength="10000" value="">
 
-      </section>
+            <div class="aspform_title">お名前<span>必須</span></div>
+            <input type="text" name="2" size="20" maxlength="10000" value="">
+
+            <div class="aspform_title">お名前&nbsp;(カナ)</div>
+            <input type="text" name="3" size="20" maxlength="10000" value="">
+
+            <div class="aspform_title">メールアドレス<span>必須</span></div>
+            <input type="text" name="4" size="20" maxlength="10000" value="">
+
+            <div class="aspform_title">電話番号（携帯可)</div>
+            <input type="text" name="5" size="20" maxlength="10000" value="">
+
+            <div class="aspform_title">お問い合わせの種類<span>必須</span></div>
+            <select name="6">
+              <option value="0" selected="">▼&nbsp;選択してください。</option>
+              <option value="1">制作依頼</option>
+              <option value="2">ポートフォリオ閲覧のご感想</option>
+              <option value="3">その他</option>
+            </select>
+
+            <div class="aspform_title">内容詳細<span>必須</span></div>
+            <textarea name="7" cols="25" maxlength="10000" rows="3"></textarea>
+
+            <div class="aspform_button">
+              <input type="submit" name="bt" value="確認"><br>
+            </div>
+          </form>
+        </section>
+
+
+      </div>
     </div>
   </main>
 
@@ -192,7 +186,7 @@
     </ul>
 
     <div class="footer__follow sp">
-      <h3 class="text">FOLLOW ME</h3>
+      <h3 class="text">FOLLOW&nbsp;ME</h3>
       <ul>
         <li>
           <a href="#" target="_blank">
@@ -221,11 +215,9 @@
       </ul>
     </div>
 
-    <p class="copyright">&copy; KANOMATA YUTA</p>
+    <p class="copyright">&copy;&nbsp;KANOMATA&nbsp;YUTA</p>
   </footer>
   <script src="js/nav.js"></script>
-  <script src="js/scroll.js"></script>
-  <script src="js/tab.js"></script>
 
 </body>
 

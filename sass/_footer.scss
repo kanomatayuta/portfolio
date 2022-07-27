@@ -1,96 +1,67 @@
 @charset "UTF-8";
-// レスポンシブ
-$pc: 960px;
-$tb: 520px;
-$sp: 320px;
-
-@mixin pc {
-  @media screen and (max-width: $pc) {
-    @content;
-  }
-}
-
-@mixin tb {
-  @media screen and (max-width: $tb) {
-    @content;
-  }
-}
-
-@mixin sp {
-  @media screen and (max-width: $sp) {
-    @content;
-  }
-}
+@use "_responsive" as re;
 
 /*--------------------------
 * footer
 --------------------------*/
-.footer__navi {
-  padding: 10%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  border-top: 1px solid #eee;
+.footer {
+  .footer__navi {
+    padding: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-top: 1px solid #eee;
 
-  @include sp() {
-    justify-content: space-around;
-  }
-}
+    @include re.sp() {
+      justify-content: space-around;
+    }
 
-.footer__navi li {
-  margin: 1em 0.8em;
-  font-family: 'Superior Title', serif;
-  letter-spacing: .1em;
-}
-
-.footer__follow {
-  display: none;
-  font-family: 'Superior Title', serif;
-  letter-spacing: .2em;
-  margin-bottom: 5em;
-
-  @include pc() {
-    display: block;
-  }
-}
-
-.footer__follow .text {
-  text-align: center;
-  font-family: 'Libre Baskerville', serif;
-  font-weight: 400;
-  font-size: 1em;
-  letter-spacing: .1em;
-}
-
-.footer__follow ul {
-  margin: 2em 0 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.footer__follow li {
-  width: 1.7em;
-  margin: 0 1em;
-}
-
-.footer__follow li:hover {
-  opacity: 0.7;
-}
-
-.copyright {
-  font-size: .8em;
-  text-align: center;
-  opacity: .6;
-  padding-bottom: 2em;
-}
-
-@media screen and (min-width: 1400px) {
-  body {
-    font-size: 15px;
+    li {
+      margin: 1em 0.8em;
+      font-family: 'Superior Title', serif;
+      letter-spacing: .1em;
+    }
   }
 
-  .hed {
-    font-size: 1.8em;
+  &__follow {
+    display: none;
+    font-family: 'Superior Title', serif;
+    letter-spacing: .2em;
+    margin-bottom: 5em;
+
+    @include re.pc() {
+      display: block;
+    }
+
+    .text {
+      text-align: center;
+      font-family: 'Libre Baskerville', serif;
+      font-weight: 400;
+      font-size: 1em;
+      letter-spacing: .1em;
+    }
+
+    ul {
+      margin: 2em 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      li {
+        width: 1.7em;
+        margin: 0 1em;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+
+  .copyright {
+    font-size: .8em;
+    text-align: center;
+    opacity: .6;
+    padding-bottom: 2em;
   }
 }

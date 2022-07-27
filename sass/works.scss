@@ -7,227 +7,26 @@
 @use "_variables";
 @use "_header";
 @use "_footer";
+@use "_responsive" as re;
 
-// レスポンシブ
-$pc: 960px;
-$tb: 520px;
-$sp: 320px;
-
-@mixin pc {
-  @media screen and (max-width: $pc) {
-    @content;
-  }
-}
-
-@mixin tb {
-  @media screen and (max-width: $tb) {
-    @content;
-  }
-}
-
-@mixin sp {
-  @media screen and (max-width: $sp) {
-    @content;
-  }
-}
 
 /*--------------------------
-* works_details
+* works.html
 --------------------------*/
-/*--------------------------
-* works
---------------------------*/
-.tab--list {
-  display: flex;
-  position: relative;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  padding-bottom: 40px;
-
-  @include pc() {
-    padding-top: 10%;
-    padding-right: 0px;
-  }
-
-  @include tb() {
-    justify-content: space-around;
-  }
-
-  li {
-    width: 15%;
-    padding: 0 0 0 3%;
-    text-align: center;
-
-    @include pc() {
-      width: 20%;
-    }
-
-    @include tb() {
-      width: 25%;
-      padding-left: 0;
-    }
-
-    span {
-      display: block;
-      cursor: pointer;
-      line-height: 2;
-      position: relative;
-      padding: 1em 0 0.5em;
-    }
-  }
-}
-
-.post {
-  display: none;
-
-  &--list {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-
-    &::after {
-      content: "";
-      display: block;
-      width: 32%;
-      height: 0;
-    }
-
-    li {
-      width: 32%;
-      padding-top: 2%;
-
-      @include pc() {
-        width: 49%;
-      }
-    }
-  }
-
-  .text {
-    text-align: center;
-    margin: 3rem 0;
-  }
-
-  img {
-    object-fit: contain;
-  }
-}
-
-
-// js
-.works__details .active {
-  display: block;
-  animation: appear 2s ease;
-}
-
-.works__content .active {
-  display: block;
-  animation: appear 2s ease;
-}
-
-@keyframes appear {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-
 .works__inner {
-  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  @include re.pc() {
+    display: block;
+  }
 }
 
 .works__tab {
   width: 15%;
-}
 
-.works__tab li {
-  margin: 0 0 2rem 1rem;
-}
-
-.works__tab li a {
-  display: block;
-  cursor: pointer;
-  line-height: 2;
-  position: relative;
-  padding: 1em 0 0.5em;
-}
-
-
-.works__details {
-  width: 80%;
-  margin: 0 0 0 auto;
-}
-
-.works__post {
-  margin: 0 0 1.5rem 0;
-  display: block;
-}
-
-.works__post li {
-  width: 100%;
-  padding: 0 0 10%;
-}
-
-.works__post li:last-child {
-  padding: 0;
-}
-
-
-.ttl span {
-  margin-bottom: .7em;
-  font-weight: bold;
-  text-align: left;
-  line-height: 1.5;
-}
-
-.skill {
-  margin: .7em 0;
-}
-
-
-
-
-
-@media screen and (max-width: 960px) {
-  .pc {
-    display: none;
-  }
-
-  .page_header {
-    position: relative;
-  }
-
-  .page_contents {
-    margin: 0 auto 0;
-  }
-
-  .profile--img {
-    margin-bottom: 1.8rem;
-  }
-}
-
-.works__tab {
-  padding-top: 5rem;
-}
-
-.fixed-wrk {
-  position: fixed;
-  top: 0;
-  z-index: 997;
-}
-
-@media screen and (max-width: 960px) {
-  .works__inner {
-    display: block;
-  }
-
-  .works__tab {
+  @include re.pc() {
     width: 100%;
     display: flex;
     padding-top: 0;
@@ -236,26 +35,119 @@ $sp: 320px;
     transition: all .3s;
   }
 
-  .fixed-wrk {
-    position: fixed;
+  @include re.sp() {
+    justify-content: space-around;
+  }
+
+  li {
+    margin: 0 0 2rem 1rem;
+    opacity: 0.5;
+
+    @include re.pc() {
+      width: 25%;
+      text-align: center;
+      margin: 0;
+    }
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}
+
+.works__details {
+  width: 80%;
+  margin: 0 0 0 auto;
+
+  @include re.pc() {
+    width: 100%;
+    margin: 32px auto 0;
+  }
+
+  .post {
+    display: none;
+
+    // js
+    &.active {
+      display: block;
+      animation: appear 2s ease;
+    }
+
+    @keyframes appear {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    &--list {
+      display: grid;
+      gap: 15px;
+      grid-template-columns: repeat(2, 1fr); //2列に
+
+      @include re.tb() {
+        grid-template-columns: repeat(1, 1fr); //1列に
+        gap: 10px;
+      }
+    }
+
+    .text {
+      text-align: center;
+      padding: 5% 0;
+
+      @include re.sp {
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  .ttl {
+    margin-top: .8em;
+
+    a {
+      margin-bottom: .7em;
+      font-weight: 700;
+      text-align: left;
+      line-height: 1.5;
+    }
+  }
+
+  .skill,
+  .readLast {
+    margin-top: .5em;
+  }
+}
+
+//js 固定される
+.fixed-wrk {
+  position: fixed;
+  top: 5em;
+  z-index: 997;
+
+  @include re.pc() {
     top: 0;
     left: 0;
     background-color: #fff;
-    padding: 1.1rem;
+    padding: 1.3rem;
     transform: translateY(0%);
-  }
 
-  .fixed-wrk li {
-    margin: 0;
-  }
+    @include re.sp() {
+      &.works__tab {
+        justify-content: flex-start
+      }
+    }
 
-  .works__tab li {
-    width: 25%;
-    text-align: center;
-    margin: 0;
-  }
-
-  .works__details {
-    margin: 1.1rem auto 0;
+    li {
+      margin: 0;
+    }
   }
 }

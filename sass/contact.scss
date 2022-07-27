@@ -7,174 +7,69 @@
 @use "_variables";
 @use "_header";
 @use "_footer";
-
-// レスポンシブ
-$pc: 960px;
-$tb: 520px;
-$sp: 320px;
-
-@mixin pc {
-  @media screen and (max-width: $pc) {
-    @content;
-  }
-}
-
-@mixin tb {
-  @media screen and (max-width: $tb) {
-    @content;
-  }
-}
-
-@mixin sp {
-  @media screen and (max-width: $sp) {
-    @content;
-  }
-}
+@use "_responsive" as re;
 
 /*--------------------------
 * contact.html
 --------------------------*/
 .form {
-  display: block;
-  max-width: 900px;
-  margin: auto;
-}
-
-.p-form {
   max-width: 640px;
-  margin: auto;
-}
+  margin: 0 auto;
 
-.p-form .aspform_title {
-  font-size: 1.2rem;
-  margin: 2.4rem 0 0.75rem 0;
-}
+  .aspform_title {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin: 2.4rem 0 0.75rem 0;
 
-.p-form .aspform_title span {
-  font-size: 0px;
-}
-
-.p-form select {
-  max-width: 100%;
-  width: auto;
-  padding: 1rem;
-  font-size: 1rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 0.75rem;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  cursor: pointer;
-}
-
-.aspform_title span:before {
-  content: "必須";
-  font-size: .8rem;
-  color: #e87985;
-  display: inline-block;
-  vertical-align: top;
-  margin: 0 0 0 0.4rem;
-}
-
-.p-form input[type="text"],
-.p-form textarea {
-  width: 100%;
-  padding: 1rem;
-  font-size: .8em;
-  border: 1px solid #e0e0e0;
-  border-radius: 0.85rem;
-}
-
-.p-form .aspform_button input[type="submit"] {
-  letter-spacing: 0.15rem;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-  display: block;
-  border-radius: 40px;
-  overflow: hidden;
-  text-align: center;
-  font-weight: bold;
-  width: 50%;
-  margin: 1.5rem auto 1.5rem;
-  padding: 1.5rem 5rem;
-  line-height: 1;
-  color: #3c3632;
-  border: 1px solid #3c3632;
-  background-color: #FFF;
-  font-size: 1.2em;
-  cursor: pointer;
-}
-
-.p-form .aspform_button input[type="submit"]:hover {
-  color: #fff;
-  background-color: #3c3632;
-}
-
-@media screen and (max-width: 960px) {
-  .pc {
-    display: none;
+    span {
+      color: #e87985;
+      font-size: 1rem;
+      margin: 0 0 0 0.4rem;
+      vertical-align: top;
+    }
   }
 
-  .page_header {
-    position: relative;
+  select {
+    max-width: 100%;
+    width: auto;
+    padding: 1rem;
+    font-size: 1.6rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.75rem;
+    appearance: none;
+    cursor: pointer;
   }
 
-  .page_contents {
-    margin: 0 auto 0;
-  }
-
-  .profile--img {
-    margin-bottom: 1.8rem;
-  }
-}
-
-.works__tab {
-  padding-top: 5rem;
-}
-
-.fixed-wrk {
-  position: fixed;
-  top: 0;
-  z-index: 997;
-}
-
-@media screen and (max-width: 960px) {
-  .works__inner {
-    display: block;
-  }
-
-  .works__tab {
+  input[type="text"],
+  textarea {
     width: 100%;
-    display: flex;
-    padding-top: 0;
-    flex-wrap: wrap;
-    justify-content: center;
-    transition: all .3s;
+    padding: 1rem;
+    font-size: 1.6rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.85rem;
   }
 
-  .fixed-wrk {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #fff;
-    padding: 1.1rem;
-    transform: translateY(0%);
-  }
-
-  .fixed-wrk li {
-    margin: 0;
-  }
-
-  .works__tab li {
-    width: 25%;
+  .aspform_button input[type="submit"] {
+    letter-spacing: 0.15rem;
+    appearance: none;
+    display: block;
+    border-radius: 40px;
+    overflow: hidden;
     text-align: center;
-    margin: 0;
-  }
+    font-weight: bold;
+    width: 50%;
+    margin: 1.5rem auto 1.5rem;
+    padding: 1.5rem 5rem;
+    line-height: 1;
+    color: #3c3632;
+    border: 1px solid #3c3632;
+    background-color: #FFF;
+    font-size: 1.6rem;
+    cursor: pointer;
 
-  .works__details {
-    margin: 1.1rem auto 0;
+    &:hover {
+      color: #fff;
+      background-color: #3c3632;
+    }
   }
 }
